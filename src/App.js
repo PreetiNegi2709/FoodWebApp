@@ -1,12 +1,17 @@
-import React from 'react';
+import React,{useState} from "react";
 
-import Header from './components/Layout/Header';
-import Meals from './components/Meals/Meal';
+import Cart from "./components/Cart/Cart";
+import Header from "./components/Layout/Header";
+import Meals from "./components/Meals/Meal";
+
 
 function App() {
+  const [showModal,setShowModal] = useState(false);
+
   return (
     <React.Fragment>
-      <Header/>
+      {showModal && <Cart showModal={showModal} setShowModal={setShowModal}/>}
+      <Header showModal={showModal} setShowModal={setShowModal}/>
       <main>
         <Meals/>
       </main>
